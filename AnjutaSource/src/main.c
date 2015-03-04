@@ -83,7 +83,7 @@ create_window (const gchar *window_name)
         }
 
 	priv = g_malloc (sizeof (struct _Private));
-	/* ANJUTA: Widgets initialization for gtkappmigration.ui - DO NOT REMOVE */
+	/* ANJUTA: Widgets initialization for appmigrator.ui - DO NOT REMOVE */
 
 	g_object_unref (builder);
 
