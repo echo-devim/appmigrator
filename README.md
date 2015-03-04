@@ -18,7 +18,6 @@ ATTENTION: This software has not been tested enough. I do not take any responsib
 
 ### Screenshot
 ![GitHub Logo](/Screenshot/appmigrator.jpg)
-Format: ![Alt Text](url)
 
 ### Technical Details
 
