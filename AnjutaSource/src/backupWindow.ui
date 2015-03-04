@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.16.1 -->
+<interface>
+  <requires lib="gtk+" version="3.10"/>
+  <object class="GtkListStore" id="lstDistro">
+    <columns>
+      <!-- column-name DistroName -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">ArchLinux</col>
+        <col id="1" translatable="yes">0</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Fedora/OpenSUSE/RHEL/CentOS</col>
+        <col id="1" translatable="yes">1</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Debian/Ubuntu</col>
+        <col id="1" translatable="yes">2</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Gentoo</col>
+        <col id="1" translatable="yes">3</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkTreeView" id="treeview1">
+    <property name="width_request">100</property>
+    <property name="height_request">80</property>
+    <property name="visible">True</property>
+    <property name="can_focus">True</property>
+    <property name="model">lstDistro</property>
+    <child internal-child="selection">
+      <object class="GtkTreeSelection" id="treeview-selection1"/>
+    </child>
+  </object>
+  <object class="GtkWindow" id="window">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Backup Packages</property>
+    <property name="resizable">False</property>
+    <property name="has_resize_grip">False</property>
+    <child>
+      <object class="GtkFixed" id="fixed1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <signal name="destroy" handler="destroy" swapped="no"/>
+        <child>
+          <object class="GtkLabel" id="label1">
+            <property name="width_request">100</property>
+            <property name="height_request">23</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Select your distro:</property>
+          </object>
+          <packing>
+            <property name="x">6</property>
+            <property name="y">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBox" id="cmbDistro">
+            <property name="width_request">257</property>
+            <property name="height_request">23</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="model">lstDistro</property>
+            <property name="active">0</property>
+            <property name="id_column">1</property>
+            <child>
+              <object class="GtkCellRendererText" id="cellrenderertext1"/>
+              <attributes>
+                <attribute name="text">0</attribute>
+              </attributes>
+            </child>
+          </object>
+          <packing>
+            <property name="x">7</property>
+            <property name="y">29</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnCancel">
+            <property name="label" translatable="yes">Cancel</property>
+            <property name="width_request">79</property>
+            <property name="height_request">26</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="margin_bottom">6</property>
+            <signal name="clicked" handler="on_btnCancel_clicked" object="window" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">14</property>
+            <property name="y">65</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnBackup">
+            <property name="label" translatable="yes">Backup</property>
+            <property name="width_request">79</property>
+            <property name="height_request">26</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="margin_bottom">6</property>
+            <signal name="clicked" handler="on_btnBackup_clicked" object="cmbDistro" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">141</property>
+            <property name="y">65</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

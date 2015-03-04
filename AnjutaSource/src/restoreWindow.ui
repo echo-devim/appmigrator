@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.16.1 -->
+<interface>
+  <requires lib="gtk+" version="3.10"/>
+  <object class="GtkListStore" id="listPackage">
+    <columns>
+      <!-- column-name PackageName -->
+      <column type="gchararray"/>
+      <!-- column-name Selection -->
+      <column type="gboolean"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="lstDistroRestore">
+    <columns>
+      <!-- column-name DistroName -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">ArchLinux</col>
+        <col id="1" translatable="yes">0</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Fedora/OpenSUSE/RHEL/CentOS</col>
+        <col id="1" translatable="yes">1</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Debian/Ubuntu</col>
+        <col id="1" translatable="yes">2</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Gentoo</col>
+        <col id="1" translatable="yes">3</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="window">
+    <property name="width_request">541</property>
+    <property name="height_request">401</property>
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Restore Packages</property>
+    <signal name="realize" handler="on_window_realize" object="cellrenderertoggle1" swapped="no"/>
+    <child>
+      <object class="GtkBox" id="box1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkLayout" id="layout1">
+            <property name="height_request">62</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label1">
+                <property name="width_request">107</property>
+                <property name="height_request">31</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">List of packages:</property>
+              </object>
+              <packing>
+                <property name="x">15</property>
+                <property name="y">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entryFilePath">
+                <property name="width_request">231</property>
+                <property name="height_request">26</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <signal name="changed" handler="on_entryFilePath_changed" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">129</property>
+                <property name="y">6</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnSelectPackagesList">
+                <property name="label" translatable="yes">Browse</property>
+                <property name="width_request">80</property>
+                <property name="height_request">29</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnSelectPackagesList_clicked" object="entryFilePath" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">368</property>
+                <property name="y">6</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnOpenFile">
+                <property name="label" translatable="yes">Open</property>
+                <property name="width_request">80</property>
+                <property name="height_request">29</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnOpenFile_clicked" object="listPackage" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">455</property>
+                <property name="y">7</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label2">
+                <property name="width_request">116</property>
+                <property name="height_request">22</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Select your distro:</property>
+              </object>
+              <packing>
+                <property name="x">6</property>
+                <property name="y">34</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBox" id="cmbDistroRestore">
+                <property name="width_request">151</property>
+                <property name="height_request">26</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="model">lstDistroRestore</property>
+                <property name="active">0</property>
+                <property name="id_column">1</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext2"/>
+                  <attributes>
+                    <attribute name="text">0</attribute>
+                  </attributes>
+                </child>
+              </object>
+              <packing>
+                <property name="x">129</property>
+                <property name="y">35</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scrolledwindow1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkTreeView" id="treeviewPackage">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">listPackage</property>
+                <property name="headers_clickable">False</property>
+                <property name="enable_search">False</property>
+                <property name="search_column">0</property>
+                <property name="show_expanders">False</property>
+                <child internal-child="selection">
+                  <object class="GtkTreeSelection" id="treeview-selection"/>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="PackageName">
+                    <property name="title" translatable="yes">Package Name</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                      <attributes>
+                        <attribute name="markup">0</attribute>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                    <child>
+                      <object class="GtkCellRendererToggle" id="cellrenderertoggle1">
+                        <signal name="toggled" handler="on_cellrenderertoggle1_toggled" object="listPackage" swapped="no"/>
+                      </object>
+                      <attributes>
+                        <attribute name="active">1</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box2">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">4</property>
+            <property name="margin_bottom">4</property>
+            <child>
+              <object class="GtkButton" id="btnSelectAll">
+                <property name="label" translatable="yes">Select All</property>
+                <property name="width_request">79</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnSelectAll_clicked" object="listPackage" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="padding">4</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnDeselectAll">
+                <property name="label" translatable="yes">Deselect All</property>
+                <property name="width_request">79</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnDeselectAll_clicked" object="listPackage" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="padding">4</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnCancel">
+                <property name="label" translatable="yes">Cancel</property>
+                <property name="width_request">79</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <signal name="clicked" handler="on_btnCancel_clicked" object="window" swapped="no"/>
+                <signal name="destroy" handler="destroy" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="padding">4</property>
+                <property name="pack_type">end</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnInstall">
+                <property name="label" translatable="yes">Install</property>
+                <property name="width_request">79</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnInstall_clicked" object="cmbDistroRestore" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="padding">4</property>
+                <property name="pack_type">end</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblInfo">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_bottom">1</property>
+            <property name="xalign">0.0099999997764825821</property>
+            <property name="yalign">0</property>
+            <property name="ellipsize">start</property>
+            <attributes>
+              <attribute name="style" value="italic"/>
+              <attribute name="weight" value="thin"/>
+            </attributes>
+            <signal name="realize" handler="on_lblInfo_realize" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
